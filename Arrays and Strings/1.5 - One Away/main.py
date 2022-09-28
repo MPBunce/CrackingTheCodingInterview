@@ -16,7 +16,8 @@ def isOneAway(stringOne, stringTwo):
 
         if letterTable[val] < 0:
             count += 1
-
+        if letterTable[val] > 0:
+            count += 1
 
     if count == 1:
         return True
