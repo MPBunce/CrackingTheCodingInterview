@@ -1,8 +1,3 @@
-from cgitb import small
-from re import S
-import string
-
-
 class Node(object):
 
     def __init__(self, value):
@@ -73,7 +68,6 @@ def sumLists(listOne, listTwo):
 
     return returned_linked_list
 
-
 print("List One:\n")
 my_list_one = LinkedList()
 my_list_one.insert_node(7)
@@ -89,5 +83,3 @@ my_list_two.display_list()
 Da_return = sumLists(my_list_one, my_list_two)
 print("\nSum Lists Result:\n")
 Da_return.display_list()
-
-
