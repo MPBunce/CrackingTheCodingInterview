@@ -44,16 +44,11 @@ class LinkedList(object):
 
         for i in range(toBeDeleted - 2):
             current = current.next
-        print("current\n")
-        print(current.value)
-        print("\n")
+
         currentTwo = current
         currentTwo = currentTwo.next
         currentTwo = currentTwo.next
         current.next = currentTwo
-        print("second")
-        print(currentTwo.value)
-        print("\n")
 
 
 
