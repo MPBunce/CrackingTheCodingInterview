@@ -1,7 +1,3 @@
-from socket import NI_NUMERICSERV
-from tkinter import W
-
-
 class Node:
   
     # Function to initialise the node object
@@ -17,41 +13,46 @@ class LinkedList:
     def __init__(self):
         self.head = None
   
-    def Detect_Loop(self):
-        slow, fast = self.head, self.head
-        
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
+def intersect(listOne, listTwo):
+    currentOne = listOne.head
+    nums = set()
+    while currentOne:
+        nums.add(currentOne.data)
+        currentOne = currentOne.next
 
-        return False
+    currentTwo = listTwo.head
+    while currentTwo:
+        if currentTwo.data in nums:
+            return currentTwo.data
+        currentTwo = currentTwo.next
+
+    return False
 
 
 
 # Start with the empty list
-my_list = LinkedList()
-my_list.head = Node(1)
+my_list_one = LinkedList()
+my_list_one.head = Node(1)
 second = Node(2)
-my_list.head.next = second
+my_list_one.head.next = second
 third = Node(3)
 second.next = third
 fourth = Node(4)
 third.next = fourth
 fifth = Node(5)
 fourth.next = fifth
-sixth = Node(6)
-fifth.next = sixth
+fifth.next = None
+
+my_list_two = LinkedList()
+my_list_two.head = Node(6)
 seventh = Node(7)
-sixth.next = seventh
+my_list_two.head.next = seventh
 eight = Node(8)
 seventh.next = eight
 nine = Node(9)
 eight.next = nine
-nine.next = sixth
+nine.next = fourth
 
-value = my_list.Detect_Loop()
-
-print("Is there a loop? (T or F):")
+value = intersect(my_list_one, my_list_two)
+print("Where do they intersect?:")
 print(value)
