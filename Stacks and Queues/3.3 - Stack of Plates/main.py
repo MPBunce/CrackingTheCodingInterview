@@ -36,14 +36,30 @@ class DinnerPlates(object):
             print(n)
 
     def popAt(self, index):
-        if self.stakcs == []:
+        if self.stacks == []:
             raise NameError("Cant pop an empty stack")
         elif index-1 > len(self.stacks):
             raise NameError("Out or range")
         else: 
             popped_data = self.stacks[index-1][-1]
 
-        
+            if len(self.stacks[index-1]) == 1:
+                del self.stacks[-1]
+            elif len(self.stacks) == index:
+                del self.stacks[-1][-1]
+            else:
+                self.stacks[index-1][-1] = self.stacks[index][0]
+                for i in range(index, len(self.stacks) ):
+                    for j in range(0, len(self.stacks[i]) -1 ):
+                        self.stacks[i][j] = self.stacks[i][j+1]
+                    if i < len(self.stacks) - 1:
+                        self.stacks[i][-1] = self.stacks[i + 1][0]
+                del self.stacks[-1][-1]
+
+                if len(self.stacks[-1]) == 0:
+                    del self.stacks[-1]
+        print("Popped:")
+        print(popped_data)
 
 plates = DinnerPlates(3)
 plates.push(1)
@@ -52,5 +68,6 @@ plates.push(4)
 plates.push(8)
 plates.push(12)
 plates.push(19)
-
+plates.display()
+plates.popAt(2)
 plates.display()
