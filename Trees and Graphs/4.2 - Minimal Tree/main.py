@@ -1,7 +1,3 @@
-# Python code to convert a sorted array
-# to a balanced Binary Search Tree
- 
-# binary tree node
 class Node:
     def __init__(self, d):
         self.data = d
@@ -34,25 +30,24 @@ def sortedArrayToBST(arr):
  
 # A utility function to print the preorder
 # traversal of the BST
-def preOrder(node):
+def displayTree(node):
     if not node:
         return
      
     print (node.data)
-    preOrder(node.left)
-    preOrder(node.right)
+    displayTree(node.left)
+    displayTree(node.right)
  
 # driver program to test above function
-# """
 # Constructed balanced BST is
 #     4
-# / \
-# 2 6
-# / \ / \
-# 1 3 5 7
-# """
+#    / \
+#   2   6
+#  / \ / \
+# 1  3 5  7
+
  
 arr = [1, 2, 3, 4, 5, 6, 7]
 root = sortedArrayToBST(arr)
 print( "PreOrder Traversal of constructed BST ")
-preOrder(root)
+displayTree(root)
