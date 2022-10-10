@@ -1,6 +1,6 @@
-using system;
+﻿using System;
 
-public class isUnique{
+public class Program{
 
     static bool uniqueString(String str)
     {
@@ -15,14 +15,13 @@ public class isUnique{
 
     public static void Main()
     {
-        string input = "apples"
+        string input = "apples";
 
-        if (uniqueCharacters(input)){
+        if (uniqueString(input)){
             Console.WriteLine("The String " + input + " has all unique characters");
         } else {
             Console.WriteLine("The String " + input + " has duplicate characters");
         }   
-
 
     }
 
