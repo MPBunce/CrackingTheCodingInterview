@@ -4,10 +4,17 @@ fn main() {
     let testString = String::from("apples");
 
     if isStringUniqueTwoLoops(&testString) {
-        println!("{}, This is a unique string!\n", &testString)
+        println!("{}, - Two Loop Method - This is a unique string!\n", &testString)
     } else {
-        println!("{}, This is not a unique string :(\n", &testString)
+        println!("{}, - Two Loop Method - This is not a unique string :(\n", &testString)
     }
+
+    if isStringUniqueHashMap(&testString) {
+        println!("{}, - Hashmap Method - This is a unique string!\n", &testString)
+    } else {
+        println!("{}, - Hashmap Method - This is not a unique string :(\n", &testString)
+    }
+
 }
 
 fn isStringUniqueTwoLoops(msg: &String) -> bool{
@@ -29,7 +36,7 @@ fn isStringUniqueTwoLoops(msg: &String) -> bool{
     return true;
 }
 
-// fn isStringUniqueHashMap(msg: &String) -> bool{
-//     println!("THE STRING : {}", msg);
-//     return true;
-// }
+fn isStringUniqueHashMap(msg: &String) -> bool{
+    println!("THE STRING : {}", msg);
+    return true;
+}
