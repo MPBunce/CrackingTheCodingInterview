@@ -1,4 +1,5 @@
 #![allow(non_snake_case)]
+use std::collections::HashMap;
 
 fn main() {
     let testString = String::from("apples");
@@ -21,7 +22,6 @@ fn isStringUniqueTwoLoops(msg: &String) -> bool{
 
     //Cannot iterate over a string in Rust convert to char vector XD
     let my_vec: Vec<char> = msg.chars().collect();
-    println!("THE STRING : {}", msg);
 
     for i in 0..my_vec.len() {
         for j in i..my_vec.len() {
@@ -37,6 +37,19 @@ fn isStringUniqueTwoLoops(msg: &String) -> bool{
 }
 
 fn isStringUniqueHashMap(msg: &String) -> bool{
-    println!("THE STRING : {}", msg);
+
+    let my_vec: Vec<char> = msg.chars().collect();
+    let mut table = HashMap::new();
+
+    for char in my_vec {
+        let count = table.entry(char).or_insert(0);
+        *count += 1;
+
+        if count > &mut 1 {
+            return false;
+        } 
+
+    }
+
     return true;
 }
